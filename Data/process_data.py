@@ -5,6 +5,7 @@ import sys
 import tkinter as tk
 from tkinter import simpledialog
 import yfinance as yf
+import datetime
 
 
 # get user input to load data
@@ -31,18 +32,17 @@ def get_user_input():
 
     # open input window for the user
     words_list = simpledialog.askstring(title="Stock Name List",
-                                        prompt="Please enter a list of stock short names, separated by a comma:")
+                                        prompt="Please enter a list of stock short names, separated by a space:")
 
-    start_date = simpledialog.askstring(title="Start Date",
-                                        prompt="Please enter the start date in the format 'YYYY-MM-DD':")
+    today = datetime.date.today().strftime("%d-%m-%Y")
 
-    end_date = simpledialog.askstring(title="End Date",
-                                      prompt="Please enter the end date in the format 'YYYY-MM-DD':")
+    start_date = today - datetime.timedelta(days=365*10)
 
-    runs = simpledialog.askstring(title="Runs",
-                                  prompt="Please enter the number of runs for outlier cleaning (recommended is 1):")
+    start_date = start_date.strftime("%d-%m-%Y")
 
-    return words_list.split(','), start_date, end_date, int(runs)
+    runs = 1
+
+    return words_list.split(' '), start_date, today, int(runs)
 
 
 # load data algorithm
@@ -205,8 +205,19 @@ def save_data(clean_stock_df_dict, database_filepath):
 
     # iterate through keys, create dfs and save them
     for key in clean_stock_df_dict:
-        df = pd.DataFrame(clean_stock_df_dict[key])
+        df = clean_stock_df_dict[key]
+
+        # change the data from index to column (because the sql can work with it)
+        df['date'] = df.index
+        df = df.reset_index(drop=True)
+        df.index = df.index
+        df = df.reindex(columns=['date'] + list(df.columns[:-1]))
+
+        print(df)
+        # define table name
         table_name = key
+
+        # transform to the sql database
         df.to_sql(table_name, engine, index=False, if_exists='replace')
     return None
 
@@ -220,7 +231,7 @@ def main():
         # select user input
         stock_names, start, end, runs = get_user_input()
 
-        print('Loading data...\n    Stock Names: {}\n    Start Date: {}\n    End Date: {}\n    Runs: {}'.
+        print('Loading data...\n    Stock Names: {}\n    Start Date: {}\n    Today Date: {}\n    Runs: {}'.
               format(stock_names, start, end, runs))
 
         stock_df_dict = load_stock_data(stock_names, start, end)
