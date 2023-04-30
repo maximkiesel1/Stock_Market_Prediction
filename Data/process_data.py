@@ -34,19 +34,21 @@ def get_user_input():
     words_list = simpledialog.askstring(title="Stock Name List",
                                         prompt="Please enter a list of stock short names, separated by a space:")
 
-    today = datetime.date.today().strftime("%d-%m-%Y")
+    today = datetime.date.today()
 
-    start_date = today - datetime.timedelta(days=365*10)
+    today_trans = today.strftime("%Y-%m-%d")
 
-    start_date = start_date.strftime("%d-%m-%Y")
+    start_date = today - datetime.timedelta(days=365 * 10)
+
+    start_date = start_date.strftime("%Y-%m-%d")
 
     runs = 1
 
-    return words_list.split(' '), start_date, today, int(runs)
+    return words_list.split(' '), start_date, today_trans, int(runs)
 
 
 # load data algorithm
-def load_stock_data(stock_names, start, end):
+def load_stock_data(stock_names):
     '''
     Load specific stock data from yahoo finance api and save them
     in a dataframe.
@@ -60,15 +62,23 @@ def load_stock_data(stock_names, start, end):
     dfs - (dict) dictionary with the df+stock names as keys and the matching dataframe as values
     '''
 
+    today = datetime.date.today()
+
+    today_trans = today.strftime("%Y-%m-%d")
+
+    start_date = today - datetime.timedelta(days=365 * 10)
+
+    start_date = start_date.strftime("%Y-%m-%d")
+
     dfs = {}
     for name in stock_names:
-        dfs[name] = yf.download(name, start=start, end=end)
+        dfs[name] = yf.download(name, start=start_date, end=today_trans)
 
     return dfs
 
 
 # cleaning algorithm
-def cleaning_stock_data(stock_df_dict, runs):
+def cleaning_stock_data(stock_df_dict, runs=1):
     '''
     Remove all nan values and outlier from 'Volume'. The outlier will be reduced with the Z-Score. All values
     which are bigger than 3 sigma will be deleted. This happens in different runs to reduce steady the outliers.
@@ -184,7 +194,7 @@ def cleaning_stock_data(stock_df_dict, runs):
         messages.append('Count Outlier over all runs: {}'.format(count_outlier[key]))
         messages.append('---------------------------------')
 
-    return clean_stock_df_dict, messages
+    return clean_stock_df_dict
 
 
 # create a sql database
@@ -201,7 +211,7 @@ def save_data(clean_stock_df_dict, database_filepath):
     '''
 
     # create sql engine to save the database in a specific file path
-    engine = create_engine(f'sqlite:///{database_filepath[0]}')
+    engine = create_engine(f'sqlite:///{database_filepath}')
 
     # iterate through keys, create dfs and save them
     for key in clean_stock_df_dict:
@@ -213,7 +223,6 @@ def save_data(clean_stock_df_dict, database_filepath):
         df.index = df.index
         df = df.reindex(columns=['date'] + list(df.columns[:-1]))
 
-        print(df)
         # define table name
         table_name = key
 
