@@ -4,8 +4,13 @@ import sys
 sys.path.append('/Users/maximkiesel/PycharmProjects/Stock_Market_Prediction/Data')
 from process_data import load_stock_data, cleaning_stock_data, save_data
 #from visualizations import generate_visualizations
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import os
+import base64
+from io import BytesIO
+from flask_socketio import run_in_thread
 
 
 
@@ -16,30 +21,18 @@ def index():
     if request.method == "POST":
         stock_names = request.form["stock_name"]
         stock_name_list = stock_names.split(", ")[:5]
-        file = request.form['database_filepath']
         dfs = load_stock_data(stock_name_list)
         dfs_cleaned = cleaning_stock_data(dfs, runs=1)
-        save_data(dfs_cleaned, file)
-        result = "Data saved successfully!"
-        return render_template("index.html", result1=result)
-    return render_template("index.html")
 
-
-@app.route("/visualizations", methods=["GET", "POST"])
-def visualizations():
-    if request.method == "POST":
-        data = request.form["generate_visu"]
-
-        #file_names = generate_visualizations(data)
-
-        file_names = []
-        for stock_name in data:
+        image_data = {}
+        for name in dfs_cleaned:
+            # define area to calculate rolling average
             window_size = 20
 
             plt.figure(figsize=(25, 15))
             # calculate the rolling average
-            rolling_mean_high = data[stock_name]['High'].rolling(window_size).mean()
-            rolling_mean_low = data[stock_name]['Low'].rolling(window_size).mean()
+            rolling_mean_high = dfs_cleaned[name].rolling(window_size).mean()
+            rolling_mean_low = dfs_cleaned[name].rolling(window_size).mean()
 
             # plot rolling mean variants
             plt.plot(rolling_mean_high, label="Rolling Mean High")
@@ -49,20 +42,15 @@ def visualizations():
             plt.grid()
 
             # save the plot
-            filename = f'{stock_name}_stock.png'
-            filepath = os.path.join(app.static_folder, filename)
-            plt.savefig(filepath)
-            file_names.append(filename)
+            buffer = BytesIO()
+            plt.savefig(buffer, format='png')
+            image_data[name] = base64.b64encode(buffer.getvalue()).decode('utf-8')
 
-        return render_template("index.html", result2=file_names)#'Visualization generated!')
+        return render_template("index.html", result=dfs_cleaned, image_data=image_data)
     return render_template("index.html")
-
-
-def my_function(stock_name):
-    # hier können Sie den eingegebenen Text des Benutzers verwenden, um Ihr anderes Programm zu starten
-    # und das Ergebnis zurückgeben
-    return f"You entered {stock_name}"
-
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+

@@ -20,14 +20,6 @@
         flex-basis: 70%;
         padding: 20px;
       }
-
-      #right {
-        flex-basis: 30%;
-        background-color: darkslategrey;
-        padding: 20px;
-        text-align: left;
-      }
-
       h1 {
         font-size: 36px;
         text-align: left;
@@ -46,13 +38,8 @@
         color: black;
       }
 
-      .image-placeholder {
-        height: 150px;
-        background-color: white;
-        margin-bottom: 10px;
-      }
     </style>
-</head>
+  </head>
   <body>
     <div id="container">
       <div id="left">
@@ -63,44 +50,23 @@
         <form action="/" method="post">
           <label for="stock_name">Enter Stock Name (up to 5 values):</label>
           <input type="text" id="stock_name" name="stock_name" placeholder="e.g. AAPL, TSLA" required><br><br>
-          <label for="database_filepath">Enter the path where you want to save the data:</label>
-          <input type="text" id="database_filepath" name="database_filepath" placeholder="e.g. /path/to/folder" required><br><br>
-          <button type="submit">Save Cleaned Stock Data</button>
+          <button type="submit">Create Prediction</button>
         </form>
-        {% if result1%}
+        {% if result %}
         <div class="output">
-          <p>INFORMATION: {{ result1 }}</p>
+          <p>INFORMATION: {{ result }}</p>
         </div>
         {% endif %}
-        {% if result2%}
-        <div class="output">
-          <p>INFORMATION: {{ result2 }}</p>
-        </div>
-        {% endif %}
-        <form action="/visualizations" method="post">
-          <button type="submit" id="generate_visu" name="generate_visu">Generate Visualization</button>
-        </form>
       </div>
-      <div id="right">
-        <div class="image-placeholder"></div>
-        <div class="image-placeholder"></div>
-        <div class="image-placeholder"></div>
-        <div class="image-placeholder"></div>
-        <div class="image-placeholder"></div>
-        <div class="image-placeholder"></div>
+      <div class="output">
+        {% if image_data %}
+          <h2>Stock Visualizations:</h2>
+          {% for name, data in image_data.items() %}
+            <img src="data:image/png;base64,{{ data }}" alt="{{ name }}">
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
-    <script>
-    function visualizations() {
-      fetch("/visualizations")
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.error(error))
-    }
-    </script>
-    {% for filename in file_names %}
-    <img src="{{ url_for('static', filename=filename) }}" alt="{{ filename }}">
-    {% endfor %}
   </body>
 </html>
 
