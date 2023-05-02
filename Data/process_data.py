@@ -5,16 +5,14 @@ import tkinter as tk
 from tkinter import simpledialog
 import yfinance as yf
 import datetime
-
+import os
 
 # get user input to load data
 def get_user_input():
     '''
     Get the user input to define the following:
     - list of stock short names
-    - Start Date
-    - End Date
-    - Runs - Number of runs for the outlier cleaning
+
 
     INPUT
     None
@@ -23,51 +21,40 @@ def get_user_input():
     words_list.split(',') - (list) list of stock names (str) (need to be the specific short names)
     start_date - (str)start date for the download of the data. Format:'YYY-MM-DD'
     end_date - (str) end date for the download of the data. Format:'YYY-MM-DD'
-    runs - (int) number of runs to reduce the number of outlier ((recommended is 1)
     '''
 
     root = tk.Tk()
     root.withdraw()
 
     # open input window for the user
-    words_list = simpledialog.askstring(title="Stock Name List",
+    words_list = simpledialog.askstring(title="Stock Name List (max. 5 Stocks)",
                                         prompt="Please enter a list of stock short names, separated by a space:")
 
     today = datetime.date.today()
 
     today_trans = today.strftime("%Y-%m-%d")
 
-    start_date = today - datetime.timedelta(days=365 * 10)
+    start_date = today - datetime.timedelta(days=365 * 5)
 
     start_date = start_date.strftime("%Y-%m-%d")
 
-    runs = 1
-
-    return words_list.split(' '), start_date, today_trans, int(runs)
+    return words_list.split(' ')[:5], start_date, today_trans
 
 
 # load data algorithm
-def load_stock_data(stock_names):
+def load_stock_data(stock_names, start_date, today_trans):
     '''
     Load specific stock data from yahoo finance api and save them
     in a dataframe.
 
     INPUT
     stock_names - (list) list of stock names (str) (need to be the specific short names)
-    start - (str)start date for the download of the data. Format:'YYY-MM-DD'
-    end - (str) end date for the download of the data. Format:'YYY-MM-DD'
+
 
     OUTPUT
     dfs - (dict) dictionary with the df+stock names as keys and the matching dataframe as values
     '''
 
-    today = datetime.date.today()
-
-    today_trans = today.strftime("%Y-%m-%d")
-
-    start_date = today - datetime.timedelta(days=365 * 10)
-
-    start_date = start_date.strftime("%Y-%m-%d")
 
     dfs = {}
     for name in stock_names:
@@ -193,7 +180,7 @@ def cleaning_stock_data(stock_df_dict, runs=1):
         messages.append('Count Outlier over all runs: {}'.format(count_outlier[key]))
         messages.append('---------------------------------')
 
-    return clean_stock_df_dict
+    return clean_stock_df_dict, messages
 
 
 # create a sql database
@@ -219,7 +206,6 @@ def save_data(clean_stock_df_dict, database_filepath):
         # change the data from index to column (because the sql can work with it)
         df['date'] = df.index
         df = df.reset_index(drop=True)
-        df.index = df.index
         df = df.reindex(columns=['date'] + list(df.columns[:-1]))
 
         # define table name
@@ -229,28 +215,28 @@ def save_data(clean_stock_df_dict, database_filepath):
         df.to_sql(table_name, engine, index=False, if_exists='replace')
     return None
 
-
+database_filepath = os.getcwd() + '/cleaned_data.db'
 def main():
-    if len(sys.argv) == 2:
+    if len(sys.argv) == 1:
 
-        database_filepath = sys.argv[1:]
+        database_filepath = os.getcwd() + '/cleaned_data.db'
 
         print('Get user input...\n')
         # select user input
-        stock_names, start, end, runs = get_user_input()
+        stock_names, start, end= get_user_input()
 
-        print('Loading data...\n    Stock Names: {}\n    Start Date: {}\n    Today Date: {}\n    Runs: {}'.
-              format(stock_names, start, end, runs))
+        print('Loading data...\n    Stock Names: {}\n    Start Date: {}\n    Today Date: {}'.
+              format(stock_names, start, end))
 
         stock_df_dict = load_stock_data(stock_names, start, end)
 
         print('Cleaning data...')
-        clean_stock_df_dict, messages = cleaning_stock_data(stock_df_dict, runs)
+        clean_stock_df_dict, messages = cleaning_stock_data(stock_df_dict, runs=1)
 
         for message in messages:
             print(message)
 
-        print('Saving data...\n    DATABASE: {}'.format(database_filepath[0]))
+        print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(clean_stock_df_dict, database_filepath)
 
         print('Cleaned data saved to database!')
