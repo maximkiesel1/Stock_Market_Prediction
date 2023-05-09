@@ -2,10 +2,6 @@
 Stock Market Prediction For 4 Main Stock Categories 
 
 
-**Disclaimer**:
-
-The following is a suggested disclaimer for a trading machine learning algorithm. Please note that this is not a legal advice and should be reviewed and customized by a licensed attorney to fit the specific needs and requirements of the trading algorithm and business.
-
 **Risk Disclaimer**:
 
 Trading in the financial markets involves a high degree of risk and may not be suitable for all investors. The trading machine learning algorithm presented herein is an experimental program and is provided on an "as is" basis without any warranties, expressed or implied. The creators and owners of the algorithm do not make any representations or warranties, either express or implied, as to the accuracy, reliability, completeness, or appropriateness for any particular purpose of the information, analyses, algorithms, or models contained in this algorithm.
