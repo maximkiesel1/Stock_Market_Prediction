@@ -47,9 +47,11 @@ Include any essential instructions for:
 - IRC or Slack (if applicable)
 
 # License
+This project is licensed under the MIT license.
 
+The MIT License is a permissive open source license that allows for unlimited distribution and reuse of the licensed software. It is short and easy to understand, and it places very few restrictions on what you can do with the software. You can read the full text of the MIT License at https://opensource.org/licenses/MIT.
 
-**Risk Disclaimer**:
+# **Risk Disclaimer**:
 
 Trading in the financial markets involves a high degree of risk and may not be suitable for all investors. The trading machine learning algorithm presented herein is an experimental program and is provided on an "as is" basis without any warranties, expressed or implied. The creators and owners of the algorithm do not make any representations or warranties, either express or implied, as to the accuracy, reliability, completeness, or appropriateness for any particular purpose of the information, analyses, algorithms, or models contained in this algorithm.
 
