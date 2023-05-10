@@ -242,8 +242,7 @@ def main():
         print('Cleaned data saved to database!')
 
     else:
-        print('Please provide the filepaths of the database to save the cleaned data.'
-              '\n Example: python3 process_data.py cleaned_data_XXX.db')
+        print('Something went wrong... Please try again!'
 
 
 if __name__ == '__main__':
