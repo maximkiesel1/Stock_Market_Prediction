@@ -1,22 +1,9 @@
 import sys
 import os
-
 from sqlalchemy import create_engine, text, inspect
-import ssl
-
 import pandas as pd
 import numpy as np
-
-import ta
-
-from sklearn.metrics import r2_score
-from sklearn.model_selection import TimeSeriesSplit
-
 import matplotlib.pyplot as plt
-
-from sklearn.model_selection import RandomizedSearchCV
-
-import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import *
 from tensorflow.keras.callbacks import ModelCheckpoint
@@ -24,9 +11,6 @@ from tensorflow.keras.losses import MeanSquaredError
 from tensorflow.keras.metrics import RootMeanSquaredError
 from tensorflow.keras.optimizers.legacy import Adam
 from tensorflow.keras.models import load_model
-from keras.wrappers.scikit_learn import KerasRegressor
-import tensorflow.compat.v1 as tf
-
 import random
 
 
@@ -290,7 +274,7 @@ def model_validation(data, best_model):
         plt.xlabel('Timeline')
         plt.legend()
         plt.grid()
-        plt.show()
+        plt.savefig(os.getcwd()+'/visual_validation/validation'+'_'+ name +'.png')
 
         # plot for percentage deviation between predicted and real values in test data
         plt.figure(figsize=(25, 15))
@@ -302,15 +286,17 @@ def model_validation(data, best_model):
         plt.ylabel('Percentage Deviation[%]')
         plt.xlabel('Timeline')
         plt.title('Percentage Deviation For Adjusted Close Between Predicted And Real Values in Test Data Set')
-        plt.show()
+        plt.grid()
+        plt.savefig(os.getcwd() + '/visual_validation/variation' + '_' + name + '.png')
         print('The mean for the percentage deviation in the test data is {}.'.format(
             abs(np.mean(abs(test_results['diff%'])))))
         print('-----------------------------------------')
 
     return None
 
-
+best_models = []
 def main():
+    global best_models
     if len(sys.argv) == 1:
 
         # get path database file
@@ -322,25 +308,28 @@ def main():
 
         print('Load Data Was Successfull!\n')
 
-        print('Training the models...')
+        print('Training The Models...')
         # train the model
         best_models = train_model(data)
 
         print('Training Was Successfull!\n')
 
         # show the best model components
-        print('This Are The Best Models With The Following Parameters:')
+        print('This Are The Best Models With The Following Parameters:\n')
         print(best_models)
 
         print('Visualization Of The Results...\n')
         # showing the performance of the best model
         model_validation(data, best_models)
 
-        print('Visualization Was Successfull!\n')
+        print('Visualization Was Saved in "/visual_validation"!\n')
 
     else:
-        print('')
+        print('Something went wrong... Please try again!')
 
+    return best_models
 
 if __name__ == '__main__':
-    main()
+    best_models = main()
+
+
