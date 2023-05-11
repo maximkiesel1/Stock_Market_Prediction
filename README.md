@@ -34,11 +34,11 @@ This project involves the following technical concepts:
 - Predicting Stock Prices: The aim of the project is to predict the Adjusted Close stock price for 7, 14, and 28 days in the future.
    - Allowing 3 Stocks for prediction, because of the long training duration
    - 20 randowm iteration with different hyperparameter: 
-      - Hyperparameters: ´params = {
+      - Hyperparameters: `params = {
         'window_size': [4, 8, 12, 20],
         'lstm_units': [16, 32, 64, 128],
         'dense_units': [16, 32, 64, 128],
-        'learning_rate': [0.0001, 0.001, 0.01, 0.1]}´
+        'learning_rate': [0.0001, 0.001, 0.01, 0.1]}`
    - Training 200 epochs 
 
 - Accuracy: The model is designed to achieve an accuracy of approximately +-5%.
