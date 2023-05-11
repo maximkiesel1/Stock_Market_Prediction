@@ -4,15 +4,27 @@
 
 # Stock Price Prediction With LSTM
 
-- Describe very briefly but clearly what the project does.
-- State if it is out-of-the-box user-friendly, so it’s clear to the user.
-- List its most useful/innovative/noteworthy features.
-- State its goals/what problem(s) it solves.
-- Note and briefly describe any key concepts (technical, philosophical, or both) important to the user’s understanding.
-- Link to any supplementary blog posts or project main pages.
-- Note its development status.
-- Include badges.
-- If possible, include screenshots and demo videos.
+In this repository, I will create a machine learning algorithm to predict the stock price (Adjusted Close) and make a trading recommendation for the user.
+
+The following algorithm will be used for prediction:
+
+- LSTM (Long Short-Term Memory)
+
+This is a popular algorithms for stock prediction.
+
+The goal is to create an algorithm which can predict the stock prices with a tolerance of ± 5%. Also, I want to show how the different stock categories influence the accuracy of the algorithm.
+
+The following stock categories will be analyzed:
+- Blue chip stocks: Blue chip stocks are shares of large, established companies with stable financial performance and low risk.
+   - BMW (BMW.DE)
+- Growth stocks: growth stocks are stocks of companies with high potential for future growth. These stocks often carry higher risks, but also offer higher potential returns
+    - Tesla, Inc. (TSLA)
+    - Bitcoin (BTC-USD)
+- Dividend stocks: dividend stocks are stocks of companies that pay regular dividends to their shareholders. These stocks often carry lower risks and offer a regular source of income.
+    - Johnson & Johnson (JNJ)
+- Small-cap stocks: small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
+    - Etsy, Inc (ETSY)
+
 
 # Technical Concepts
 
