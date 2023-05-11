@@ -6,11 +6,7 @@
 
 In this repository, I will create a machine learning algorithm to predict the stock price (Adjusted Close) and make a trading recommendation for the user.
 
-The following algorithm will be used for prediction:
-
-- LSTM (Long Short-Term Memory)
-
-This is a popular algorithms for stock prediction.
+The LSTM (Long Short-Term Memory) algorithm will be used. This is a popular algorithms for stock prediction.
 
 The goal is to create an algorithm which can predict the stock prices with a tolerance of ± 5%. Also, I want to show how the different stock categories influence the accuracy of the algorithm.
 
@@ -25,7 +21,6 @@ The following stock categories will be analyzed:
 - Small-cap stocks: small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
     - Etsy, Inc (ETSY)
 
-
 # Technical Concepts
 
 - Why does it exist?
@@ -34,7 +29,7 @@ The following stock categories will be analyzed:
 - Highlight the technical concepts that your project demonstrates or supports. Keep it very brief.
 - Keep it useful.
 
-### Getting Started/Requirements/Prerequisites/Dependencies
+# Getting Started
 Include any essential instructions for:
 - Getting it
 - Installing It
@@ -45,18 +40,15 @@ Include any essential instructions for:
 - Versioning: Services, APIs, Systems
 - Common Error Messages/related details
 - Tests
-- Is it a Swift project? Please take a look at Mattt Thompson & Nate Cook's [Swift documentation](http://nshipster.com/swift-documentation/) guide
+
+# Findings
+Growth stocks and the small-cap stocks are worse than blue-chip and dividend stocks in their performance.
 
 
-# TODO
-- Next steps
-- Features planned
-- Known bugs (shortlist)
-
-# Contact
-- Email address
-- Google Group/mailing list (if applicable)
-- IRC or Slack (if applicable)
+# Further Informations
+- Next Step: Create a WebApp with Flask for the user
+- Bugs: 
+   - it is not possible to create an pickle file for the ML model
 
 # License
 This project is licensed under the MIT license.
