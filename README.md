@@ -13,11 +13,14 @@ The goal is to create an algorithm which can predict the stock prices with a tol
 The following stock categories will be analyzed:
 - Blue chip stocks: Blue chip stocks are shares of large, established companies with stable financial performance and low risk.
    - BMW (BMW.DE)
+   
 - Growth stocks: growth stocks are stocks of companies with high potential for future growth. These stocks often carry higher risks, but also offer higher potential returns
     - Tesla, Inc. (TSLA)
     - Bitcoin (BTC-USD)
+   
 - Dividend stocks: dividend stocks are stocks of companies that pay regular dividends to their shareholders. These stocks often carry lower risks and offer a regular source of income.
     - Johnson & Johnson (JNJ)
+    
 - Small-cap stocks: small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
     - Etsy, Inc (ETSY)
 
