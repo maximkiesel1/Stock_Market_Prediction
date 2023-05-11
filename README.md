@@ -58,12 +58,20 @@ The package has the following directory structure:
     - `classifier.pkl`
 
 
-# Getting Started
-Include any essential instructions for:
-- Getting it
-- Installing It
-- Configuring It
-- Running it
+# How to use the program
+
+To use the package, follow these steps:
+
+- Clone the repository to your local machine.
+
+Please ensure that the libraries from the requirements.txt file are installed on your system before running the code. If any of these libraries are missing, you can install them using pip. For example, to install the pandas library, you can use the following command:
+
+```
+pip install pandas
+```
+
+- Navigate to the `data` folder and run `python process_data.py`. This will start a input box to write the desired stock names (acronym) and  get the historical data automaticlly from the yahoo API, clean the data, and save the resulting data in a SQLite database called `cleaned_data_sql.db`.
+  - Here is an example to run the program:
 
 # More Specific Topics (+ sample sub-categories)
 - Versioning: Services, APIs, Systems
@@ -77,7 +85,10 @@ Growth stocks and the small-cap stocks are worse than blue-chip and dividend sto
 # Further Informations
 - Next Step: Create a WebApp with Flask for the user
 - Bugs: 
-   - it is not possible to create an pickle file for the ML model
+   - It is not possible to create an pickle file for the ML model
+   - While training the model, this error messages appears (without an impact):
+      - `WARNING:absl:Found untraced functions such as lstm_cell_68_layer_call_fn, lstm_cell_68_layer_call_and_return_conditional_losses while saving (showing 2 of 2). These functions will not be directly callable after loading.`
+
 
 # License
 This project is licensed under the MIT license.
