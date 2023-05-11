@@ -2,35 +2,53 @@
 
 ![nick-chong-N__BnvQ_w18-unsplash(1)](https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/5b5f83b2-f126-4cc1-9ba9-a048d2931885)
 
-# Stock Price Prediction With LSTM
+# Introduction
 
 In this repository, I will create a machine learning algorithm to predict the stock price (Adjusted Close) and make a trading recommendation for the user.
 
-The LSTM (Long Short-Term Memory) algorithm will be used. This is a popular algorithms for stock prediction.
+The LSTM (Long Short-Term Memory) algorithm will be used. This is a popular algorithm for stock prediction.
 
-The goal is to create an algorithm which can predict the stock prices with a tolerance of ± 5%. Also, I want to show how the different stock categories influence the accuracy of the algorithm.
+The goal is to create an algorithm that can predict stock prices with a tolerance of ± 5%. I also want to show how the different stock categories affect the accuracy of the algorithm.
 
-The following stock categories will be analyzed:
-- Blue chip stocks: Blue chip stocks are shares of large, established companies with stable financial performance and low risk.
+The following stock categories will be analyzed
+- Blue chip stocks: Blue chip stocks are stocks of large, established companies with stable financial performance and low risk.
    - BMW (BMW.DE)
    
-- Growth stocks: growth stocks are stocks of companies with high potential for future growth. These stocks often carry higher risks, but also offer higher potential returns
+- Growth stocks: Growth stocks are stocks of companies with high potential for future growth. These stocks often carry higher risks, but also offer higher potential returns.
     - Tesla, Inc. (TSLA)
     - Bitcoin (BTC-USD)
    
-- Dividend stocks: dividend stocks are stocks of companies that pay regular dividends to their shareholders. These stocks often carry lower risks and offer a regular source of income.
+- Dividend stocks: Dividend stocks are stocks of companies that pay regular dividends to their shareholders. These stocks are often less risky and provide a regular source of income.
     - Johnson & Johnson (JNJ)
     
-- Small-cap stocks: small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
+- Small-cap stocks: Small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
     - Etsy, Inc (ETSY)
 
 # Technical Concepts
 
-- Why does it exist?
-- Frame your project for the potential user. 
-- Compare/contrast your project with other, similar projects so the user knows how it is different from those projects.
-- Highlight the technical concepts that your project demonstrates or supports. Keep it very brief.
-- Keep it useful.
+This project involves the following technical concepts:
+
+- Used API: The Yahoo Finance API was used to collect historical stock prices data.
+   - Using always the last three years to the present date for the training.
+
+- Predicting Stock Prices: The aim of the project is to predict the Adjusted Close stock price for 7, 14, and 28 days in the future.
+
+- Accuracy: The model is designed to achieve an accuracy of approximately +-5%.
+
+- Recurrent Neural Networks (RNN) LSTM: In order to achieve the prediction task, the project uses Recurrent Neural Networks (RNN) in form of the LSTM algorithm with the Keras deep learning library. LSTM is particularly suited for processing sequential data, making them a good fit for predicting stock prices. The Keras library provides an easy-to-use interface for building and training deep learning models.
+
+# Directory Structure
+
+The package has the following directory structure:
+
+ - data
+   - `process_data.py`
+   - `cleaned_data_sql.db`
+  - models
+    - `train_classifier.py`
+    - `text_length_extractor.py`
+    - `classifier.pkl`
+
 
 # Getting Started
 Include any essential instructions for:
