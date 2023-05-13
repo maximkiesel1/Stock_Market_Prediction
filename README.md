@@ -97,7 +97,8 @@ pip install pandas
 <br>
 <img width="467" alt="Bildschirmfoto 2023-05-13 um 13 56 51" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/8a9e8f55-0033-481c-814e-c7c660f342d1">
 <br>
-   - The graphs from the validation and prediction will be saved at the same folder as /model. 
+
+The graphs from the validation and prediction will be saved at the same folder as /model. 
 
 # Findings
 Growth stocks and the small-cap stocks are worse than blue-chip and dividend stocks in their performance.
