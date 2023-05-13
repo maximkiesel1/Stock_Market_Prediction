@@ -57,6 +57,7 @@ The package has the following directory structure:
     - `text_length_extractor.py`
     - `classifier.pkl`
 
+You can find the technical analyses for the code in the Jupyter notebooks. 
 
 # How to use the program
 
@@ -70,17 +71,16 @@ Please ensure that the libraries from the requirements.txt file are installed on
 pip install pandas
 ```
 
-- Navigate to the `data` folder and run `python process_data.py`. This will start a input box to write the desired stock names (acronym) and  get the historical data automaticlly from the yahoo API, clean the data, and save the resulting data in a SQLite database called `cleaned_data_sql.db`.
+- GET THE DATA: Navigate to the `data` folder and run `python process_data.py`. This will start a input box to write the desired stock names (acronym) and  get the historical data automaticlly from the yahoo API, clean the data, and save the resulting data in a SQL database called `cleaned_data_sql.db`.
   - Here is an example to run the program:
 
-# More Specific Topics (+ sample sub-categories)
-- Versioning: Services, APIs, Systems
-- Common Error Messages/related details
-- Tests
+- DO THE PREDICTION: Navigate to the `model` folder and run `python modeling.py`.
+  - Here is an example to run the program:
 
 # Findings
 Growth stocks and the small-cap stocks are worse than blue-chip and dividend stocks in their performance.
 
+XXXXXXXX PCITURES XXXXXXX
 
 # Further Informations
 - Next Step: Create a WebApp with Flask for the user
