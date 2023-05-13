@@ -164,7 +164,7 @@ def train_model(data):
         df = data[name]
 
         # iterate through the random parameters
-        for i in range(1, 2):
+        for i in range(1, 21):
 
             # select random parameters
             random_params = {key: random.choice(values) for key, values in params.items()}
@@ -187,7 +187,7 @@ def train_model(data):
             cp = ModelCheckpoint('keras_model', save_best_only=True, verbose=0)
 
             # fitting the model
-            history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=2, callbacks=[cp], verbose=0)
+            history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=200, callbacks=[cp], verbose=0)
 
             # load the best model
             model = load_model('keras_model')
