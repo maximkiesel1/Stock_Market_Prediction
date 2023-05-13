@@ -49,14 +49,14 @@ This project involves the following technical concepts:
 
 The package has the following directory structure:
 
- - data
+ - `data`
    - `process_data.py`
    - `cleaned_data_sql.db`
-  - models
-    - keras_model
+  - `models`
+    - `keras_model`
     - `modelling.py`
-    - visual_predict
-    - visual_validation
+    - `visual_predict`
+    - `visual_validation`
 
 You can find the technical analyses for the code in the Jupyter notebooks. 
 
@@ -66,7 +66,7 @@ To use the package, follow these steps:
 
 - Clone the repository to your local machine.
 
-Please ensure that the libraries from the requirements.txt file are installed on your system before running the code. If any of these libraries are missing, you can install them using pip. For example, to install the pandas library, you can use the following command:
+Please ensure that the libraries from the `requirements.txt` file are installed on your system before running the code. If any of these libraries are missing, you can install them using `pip`. For example, to install the `pandas` library, you can use the following command:
 
 ```
 pip install pandas
@@ -98,12 +98,12 @@ pip install pandas
 <img width="467" alt="Bildschirmfoto 2023-05-13 um 13 56 51" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/8a9e8f55-0033-481c-814e-c7c660f342d1">
 <br>
 
-The graphs from the validation and prediction will be saved at the same folder as /model. 
+The graphs from the validation and prediction will be saved at the same folder as `model`. 
 
 # Findings
 Growth stocks and the small-cap stocks are worse than blue-chip and dividend stocks in their performance.
 This becomes clear from the comparative graphs. One example is the comparison between "BMW.DE" and "TSLA":
-- "BMW.DE
+- "BMW.DE"
 <br>
 <img width="925" alt="Bildschirmfoto 2023-05-13 um 15 12 41" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/ca4d09f0-0e85-41b5-9e87-6ac553c01632">
 <br>
