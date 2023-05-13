@@ -114,7 +114,8 @@ This becomes clear from the comparative graphs. One example is the comparison be
 <img width="928" alt="Bildschirmfoto 2023-05-13 um 15 13 52" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/22cb511d-6355-4e8e-b594-a2346c8c0c27">
 <br>
 <img width="928" alt="Bildschirmfoto 2023-05-13 um 15 14 26" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/f233fbde-2ae6-4e5b-a9d8-c2fcac818888">
-<br>
+
+
 # Further Informations
 - Next Step: Create a WebApp with Flask for the user
 - Bugs: 
