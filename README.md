@@ -86,7 +86,7 @@ pip install pandas
 <img width="600" alt="Bildschirmfoto 2023-05-13 um 13 54 05" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/854d00c9-2911-4fa3-a9f3-5141ef38fb29">
 <br>
 <img width="568" alt="Bildschirmfoto 2023-05-13 um 13 52 51" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/2d845d58-8231-44a2-9aa8-764087a93282">
-
+<br>
 
 - DO THE PREDICTION: Navigate to the `model` folder and run `python modeling.py`.
   - Here is an example to run the program:
