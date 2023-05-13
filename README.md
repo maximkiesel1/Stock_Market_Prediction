@@ -72,7 +72,7 @@ Please ensure that the libraries from the `requirements.txt` file are installed 
 pip install pandas
 ```
 
-- GET THE DATA: Navigate to the `data` folder and run `python process_data.py`. This will start a input box to write the desired stock names (acronym) and  get the historical data automaticlly from the yahoo API, clean the data, and save the resulting data in a SQL database called `cleaned_data_sql.db`.
+- *Collect Data*: Navigate to the `data` folder and run `python process_data.py`. This will start a input box to write the desired stock names (acronym) and  get the historical data automaticlly from the yahoo API, clean the data, and save the resulting data in a SQL database called `cleaned_data_sql.db`.
   - Here is an example to run the program:
 
 <img width="810" alt="Bildschirmfoto 2023-05-13 um 13 51 27" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/838eaccf-192f-4a3c-b707-356e643a3d88">
@@ -88,7 +88,7 @@ pip install pandas
 <img width="600" alt="Bildschirmfoto 2023-05-13 um 13 54 05" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/854d00c9-2911-4fa3-a9f3-5141ef38fb29">
 <br>
 
-- DO THE PREDICTION: Navigate to the `model` folder and run `python modeling.py`.
+- *Prediction*: Navigate to the `model` folder and run `python modeling.py`.
   - Here is an example to run the program:
  
 <img width="843" alt="Bildschirmfoto 2023-05-13 um 13 53 15" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/af7ca988-4d6c-40e0-8181-2bf1c14f3472">
@@ -102,14 +102,14 @@ The graphs from the validation and prediction will be saved at the same folder a
 
 # Findings
 Growth stocks and the small-cap stocks are worse than blue-chip and dividend stocks in their performance.
-This becomes clear from the comparative graphs. One example is the comparison between "BMW.DE" and "TSLA":
-- "BMW.DE"
+This becomes clear from the comparative graphs. One example is the comparison between `BMW.DE` and `TSLA`:
+- `BMW.DE`
 <br>
 <img width="925" alt="Bildschirmfoto 2023-05-13 um 15 12 41" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/ca4d09f0-0e85-41b5-9e87-6ac553c01632">
 <br>
 <img width="935" alt="Bildschirmfoto 2023-05-13 um 15 15 00" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/54908ee7-fd7d-4aab-8e61-af97c1fcccc5">
 <br>
-- "TSLA"
+- `TSLA`
 <br>
 <img width="928" alt="Bildschirmfoto 2023-05-13 um 15 13 52" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/22cb511d-6355-4e8e-b594-a2346c8c0c27">
 <br>
@@ -117,8 +117,8 @@ This becomes clear from the comparative graphs. One example is the comparison be
 
 
 # Further Informations
-- Next Step: Create a WebApp with Flask for the user
-- Bugs: 
+- *Next Step*: Create a WebApp with Flask for the user
+- *Bugs*: 
    - It is not possible to create an pickle file for the ML model
    - While training the model, this error messages appears (without an impact):
       - `WARNING:absl:Found untraced functions such as lstm_cell_68_layer_call_fn, lstm_cell_68_layer_call_and_return_conditional_losses while saving (showing 2 of 2). These functions will not be directly callable after loading.`
