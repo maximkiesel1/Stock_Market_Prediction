@@ -122,7 +122,7 @@ This becomes clear from the comparative graphs. One example is the comparison be
    - It is not possible to create an `pickle` file for the ML model
    - While training the model, this error messages appears (without an impact):
       - `WARNING:absl:Found untraced functions such as lstm_cell_68_layer_call_fn, lstm_cell_68_layer_call_and_return_conditional_losses while saving (showing 2 of 2). These functions will not be directly callable after loading.`
-   - For stock abbreviations with a hyphen like `BCT-USD` and a SQL data bank with my code has already been created once, then the database must be deleted manually, otherwise this stock entry cannot be deleted via my code. All other shares will be deleted automatically when restarting the code.
+   - For stock abbreviations with a hyphen like `BTC-USD` and a SQL data bank with my code has already been created once, then the database must be deleted manually, otherwise this stock entry cannot be deleted via my code. All other shares will be deleted automatically when restarting the code.
 
 
 # License
