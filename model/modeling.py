@@ -444,8 +444,6 @@ def main():
         # load the data with 6 features
         data = load_data(database_filepath)
 
-        print(data)
-
         print('Load Data Was Successfull!\n')
 
         print('Training The Models...')
