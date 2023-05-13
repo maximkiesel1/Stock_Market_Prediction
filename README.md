@@ -77,6 +77,8 @@ pip install pandas
 
 <img width="810" alt="Bildschirmfoto 2023-05-13 um 13 51 27" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/838eaccf-192f-4a3c-b707-356e643a3d88">
 <br>
+<img width="568" alt="Bildschirmfoto 2023-05-13 um 13 52 51" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/2d845d58-8231-44a2-9aa8-764087a93282">
+<br>
 <img width="486" alt="Bildschirmfoto 2023-05-13 um 13 51 55" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/989f285b-e125-43cc-993b-723fbce8e3b0">
 <br>
 <img width="409" alt="Bildschirmfoto 2023-05-13 um 13 52 17" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/5ac89906-e6f8-4194-b5e2-afbed276cc6a">
@@ -84,8 +86,6 @@ pip install pandas
 <img width="539" alt="Bildschirmfoto 2023-05-13 um 13 53 56" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/054e12ce-6084-418d-a51b-b84c5ea858a9">
 <br>
 <img width="600" alt="Bildschirmfoto 2023-05-13 um 13 54 05" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/854d00c9-2911-4fa3-a9f3-5141ef38fb29">
-<br>
-<img width="568" alt="Bildschirmfoto 2023-05-13 um 13 52 51" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/2d845d58-8231-44a2-9aa8-764087a93282">
 <br>
 
 - DO THE PREDICTION: Navigate to the `model` folder and run `python modeling.py`.
