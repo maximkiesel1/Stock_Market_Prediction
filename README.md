@@ -4,34 +4,34 @@
 
 # Introduction
 
-In this repository, I will create a machine learning algorithm to predict the stock price (Adjusted Close) and make a trading recommendation for the user.
+In this repository, I will create a machine learning algorithm to predict the stock price (`Adjusted Close`) and make a trading recommendation for the user.
 
-The LSTM (Long Short-Term Memory) algorithm will be used. This is a popular algorithm for stock prediction.
+The `LSTM` (Long Short-Term Memory) algorithm will be used. This is a popular algorithm for stock prediction.
 
 The goal is to create an algorithm that can predict stock prices with a tolerance of `± 5%`. I also want to show how the different stock categories affect the accuracy of the algorithm.
 
 The following stock categories will be analyzed
-- Blue chip stocks: Blue chip stocks are stocks of large, established companies with stable financial performance and low risk.
+- *Blue chip stocks*: Blue chip stocks are stocks of large, established companies with stable financial performance and low risk.
    - BMW (`BMW.DE`)
    
-- Growth stocks: Growth stocks are stocks of companies with high potential for future growth. These stocks often carry higher risks, but also offer higher potential returns.
+- *Growth stocks*: Growth stocks are stocks of companies with high potential for future growth. These stocks often carry higher risks, but also offer higher potential returns.
     - Tesla, Inc. (`TSLA`)
     - Bitcoin (`BTC-USD`)
    
-- Dividend stocks: Dividend stocks are stocks of companies that pay regular dividends to their shareholders. These stocks are often less risky and provide a regular source of income.
+- *Dividend stocks*: Dividend stocks are stocks of companies that pay regular dividends to their shareholders. These stocks are often less risky and provide a regular source of income.
     - Johnson & Johnson (`JNJ`)
     
-- Small-cap stocks: Small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
+- *Small-cap stock*s: Small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
     - Etsy, Inc (`ETSY`)
 
 # Technical Concepts
 
 This project involves the following technical concepts:
 
-- Used API: The Yahoo Finance API was used to collect historical stock prices data.
+- *Used API*: The Yahoo Finance API was used to collect historical stock prices data.
    - Using always the last three years to the present date for the training.
 
-- Predicting Stock Prices: The aim of the project is to predict the Adjusted Close stock price for `7`, `14`, and `28` days in the future.
+- *Predicting Stock Prices*: The aim of the project is to predict the Adjusted Close stock price for `7`, `14`, and `28` days in the future.
    - Allowing `3` Stocks for prediction, because of the long training duration
    - `20` random iteration with different hyperparameter: 
       - Hyperparameters: `params = {
@@ -41,9 +41,9 @@ This project involves the following technical concepts:
         'learning_rate': [0.0001, 0.001, 0.01, 0.1]}`
    - Training `200 epochs` 
 
-- Accuracy: The model is designed to achieve an mean accuracy of `+-5%`.
+- *Accuracy*: The model is designed to achieve an mean accuracy of `+-5%`.
 
-- Recurrent Neural Networks (RNN) LSTM: In order to achieve the prediction task, the project uses Recurrent Neural Networks (RNN) in form of the LSTM algorithm with the Keras deep learning library. LSTM is particularly suited for processing sequential data, making them a good fit for predicting stock prices. The Keras library provides an easy-to-use interface for building and training deep learning models.
+- *Recurrent Neural Networks (RNN) `LSTM`*: In order to achieve the prediction task, the project uses Recurrent Neural Networks (RNN) in form of the LSTM algorithm with the Keras deep learning library. LSTM is particularly suited for processing sequential data, making them a good fit for predicting stock prices. The Keras library provides an easy-to-use interface for building and training deep learning models.
 
 # Directory Structure
 
@@ -109,7 +109,7 @@ This becomes clear from the comparative graphs. One example is the comparison be
 <br>
 <img width="935" alt="Bildschirmfoto 2023-05-13 um 15 15 00" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/54908ee7-fd7d-4aab-8e61-af97c1fcccc5">
 <br>
-- `TSLA`
+- TSLA`
 <br>
 <img width="928" alt="Bildschirmfoto 2023-05-13 um 15 13 52" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/22cb511d-6355-4e8e-b594-a2346c8c0c27">
 <br>
