@@ -6,13 +6,13 @@ from tkinter import simpledialog
 import yfinance as yf
 import datetime
 import os
+from sqlalchemy import create_engine, text, inspect
 
 # get user input to load data
 def get_user_input():
     '''
     Get the user input to define the following:
     - list of stock short names
-
 
     INPUT
     None
@@ -27,7 +27,7 @@ def get_user_input():
     root.withdraw()
 
     # open input window for the user
-    words_list = simpledialog.askstring(title="Stock Name List (max. 5 Stocks)",
+    words_list = simpledialog.askstring(title="Stock Name List (max. 3 Stocks)",
                                         prompt="Please enter a list of stock short names, separated by a space:")
 
     today = datetime.date.today()
@@ -38,7 +38,7 @@ def get_user_input():
 
     start_date = start_date.strftime("%Y-%m-%d")
 
-    return words_list.split(' ')[:5], start_date, today_trans
+    return words_list.split(' ')[:3], start_date, today_trans
 
 
 # load data algorithm
@@ -215,34 +215,62 @@ def save_data(clean_stock_df_dict, database_filepath):
         df.to_sql(table_name, engine, index=False, if_exists='replace')
     return None
 
-database_filepath = os.getcwd() + '/cleaned_data.db'
+
+
+def delete_all_tables(database_filepath):
+    """
+    Delete all tables in a SQL database.
+
+    INPUT
+    database_filepath - (str) The file path of the SQLite database.
+
+    OUTPUT
+    None
+    """
+
+    engine = create_engine(f'sqlite:///{database_filepath}')
+    inspector = inspect(engine)
+
+    # get table names
+    table_names = inspector.get_table_names()
+
+    # drop each table
+    with engine.connect() as connection:
+        for table_name in table_names:
+            modified_table_name = table_name.replace("-", "_")
+            statement = text(f"DROP TABLE IF EXISTS {modified_table_name}")
+            connection.execute(statement)
+
+
+
 def main():
     if len(sys.argv) == 1:
 
         database_filepath = os.getcwd() + '/cleaned_data.db'
 
-        print('Get user input...\n')
+        print('Get User Input...\n')
         # select user input
         stock_names, start, end= get_user_input()
 
-        print('Loading data...\n    Stock Names: {}\n    Start Date: {}\n    Today Date: {}'.
+        print('Loading Data...\nStock Names: {}\nStart Date: {}\nToday Date: {}'.
               format(stock_names, start, end))
 
         stock_df_dict = load_stock_data(stock_names, start, end)
 
-        print('Cleaning data...')
+        print('\nCleaning Data...')
         clean_stock_df_dict, messages = cleaning_stock_data(stock_df_dict, runs=1)
 
         for message in messages:
             print(message)
 
-        print('Saving data...\n    DATABASE: {}'.format(database_filepath))
+        print('\nSaving Data...\nDatabase Path: {}\n'.format(database_filepath))
+        delete_all_tables(database_filepath)
         save_data(clean_stock_df_dict, database_filepath)
 
-        print('Cleaned data saved to database!')
+        print('Cleaned Data Saved To Database!\n')
 
     else:
-        print('Something went wrong... Please try again!'
+        print('Something Went Wrong... Please Try Again!\n')
 
 
 if __name__ == '__main__':
