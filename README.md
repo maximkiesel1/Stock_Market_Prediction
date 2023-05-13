@@ -24,7 +24,7 @@ The following stock categories will be analyzed
 - *Small-cap stock*s: Small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
     - Etsy, Inc (`ETSY`)
 
-# Technical Concepts
+# Technical Concept
 
 This project involves the following technical concepts:
 
