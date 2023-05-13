@@ -109,7 +109,7 @@ This becomes clear from the comparative graphs. One example is the comparison be
 <br>
 <img width="935" alt="Bildschirmfoto 2023-05-13 um 15 15 00" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/54908ee7-fd7d-4aab-8e61-af97c1fcccc5">
 <br>
-- TSLA`
+- `TSLA`
 <br>
 <img width="928" alt="Bildschirmfoto 2023-05-13 um 15 13 52" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/22cb511d-6355-4e8e-b594-a2346c8c0c27">
 <br>
