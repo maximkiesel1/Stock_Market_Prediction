@@ -8,7 +8,7 @@ In this repository, I will create a machine learning algorithm to predict the st
 
 The `LSTM` (Long Short-Term Memory) algorithm will be used. This is a popular algorithm for stock prediction.
 
-The goal is to create an algorithm that can predict stock prices with Mean Absolute Percentage Error (MAPE) score of <5%. I also want to show how the different stock categories affect the accuracy of the algorithm.
+The goal is to create an algorithm that can predict stock prices with Mean Absolute Percentage Error (`MAPE`) score of `<5%`. I also want to show how the different stock categories affect the accuracy of the algorithm.
 
 The following stock categories will be analyzed
 - *Blue chip stocks*: Blue chip stocks are stocks of large, established companies with stable financial performance and low risk.
@@ -41,7 +41,7 @@ This project involves the following technical concepts:
         'learning_rate': [0.0001, 0.001, 0.01, 0.1]}`
    - Training `200 epochs` 
 
-- *Score*: The model is designed to achieve a MAPE score of <5%.
+- *Score*: The model is designed to achieve a `MAPE` score of `<5%`.
 
 - *Recurrent Neural Networks (RNN) `LSTM`*: In order to achieve the prediction task, the project uses Recurrent Neural Networks (RNN) in form of the LSTM algorithm with the Keras deep learning library. LSTM is particularly suited for processing sequential data, making them a good fit for predicting stock prices. The Keras library provides an easy-to-use interface for building and training deep learning models.
 
