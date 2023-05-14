@@ -41,7 +41,7 @@ This project involves the following technical concepts:
         'learning_rate': [0.0001, 0.001, 0.01, 0.1]}`
    - Training `200 epochs` 
 
-- *Accuracy*: The model is designed to achieve an mean accuracy of `+-5%`.
+- *Score*: The model is designed to achieve a MAPE score of <5%.
 
 - *Recurrent Neural Networks (RNN) `LSTM`*: In order to achieve the prediction task, the project uses Recurrent Neural Networks (RNN) in form of the LSTM algorithm with the Keras deep learning library. LSTM is particularly suited for processing sequential data, making them a good fit for predicting stock prices. The Keras library provides an easy-to-use interface for building and training deep learning models.
 
