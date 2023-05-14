@@ -2,7 +2,7 @@
 
 ![nick-chong-N__BnvQ_w18-unsplash(1)](https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/5b5f83b2-f126-4cc1-9ba9-a048d2931885)
 
-# Introduction
+## Introduction
 
 In this repository, I will create a machine learning algorithm to predict the stock price (`Adjusted Close`) and make a trading recommendation for the user.
 
@@ -24,7 +24,7 @@ The following stock categories will be analyzed
 - *Small-cap stock*s: Small-cap stocks are stocks of small companies with higher risk and higher potential for growth and return.
     - Etsy, Inc (`ETSY`)
 
-# Technical Concept
+## Technical Concept
 
 This project involves the following technical concepts:
 
@@ -45,7 +45,7 @@ This project involves the following technical concepts:
 
 - *Recurrent Neural Networks (RNN) `LSTM`*: In order to achieve the prediction task, the project uses Recurrent Neural Networks (RNN) in form of the LSTM algorithm with the Keras deep learning library. LSTM is particularly suited for processing sequential data, making them a good fit for predicting stock prices. The Keras library provides an easy-to-use interface for building and training deep learning models.
 
-# Directory Structure
+## Directory Structure
 
 The package has the following directory structure:
 
@@ -60,7 +60,7 @@ The package has the following directory structure:
 
 You can find the technical analyses for the code in the Jupyter Notebooks. 
 
-# How to use the program
+## How to use the program
 
 To use the package, follow these steps:
 
@@ -100,7 +100,7 @@ pip install pandas
 
 The graphs from the validation and prediction will be saved at the same folder as `model`. 
 
-# Findings
+## Findings
 Growth stocks and the small-cap stocks are worse than blue-chip and dividend stocks in their performance.
 This becomes clear from the comparative graphs. One example is the comparison between `BMW.DE` and `TSLA`:
 - `BMW.DE`
@@ -116,7 +116,7 @@ This becomes clear from the comparative graphs. One example is the comparison be
 <img width="928" alt="Bildschirmfoto 2023-05-13 um 15 14 26" src="https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/f233fbde-2ae6-4e5b-a9d8-c2fcac818888">
 
 
-# Further Informations
+## Further Informations
 - *Next Step*: Create a WebApp with `Flask` for the user
 - *Bugs*: 
    - It is not possible to create an `pickle` file for the ML model
@@ -125,12 +125,17 @@ This becomes clear from the comparative graphs. One example is the comparison be
    - For stock abbreviations with a hyphen like `BTC-USD` and a SQL data bank with my code has already been created once, then the database must be deleted manually, otherwise this stock entry cannot be deleted via my code. All other shares will be deleted automatically when restarting the code.
 
 
-# License
+## License
 This project is licensed under the MIT license.
 
 The MIT License is a permissive open source license that allows for unlimited distribution and reuse of the licensed software. It is short and easy to understand, and it places very few restrictions on what you can do with the software. You can read the full text of the MIT License at https://opensource.org/licenses/MIT.
 
-# **Risk Disclaimer**:
+
+## Knowledgment
+The data was obtained from the website www.Immonet.de.
+
+
+## **Risk Disclaimer**:
 
 Trading in the financial markets involves a high degree of risk and may not be suitable for all investors. The trading machine learning algorithm presented herein is an experimental program and is provided on an "as is" basis without any warranties, expressed or implied. The creators and owners of the algorithm do not make any representations or warranties, either express or implied, as to the accuracy, reliability, completeness, or appropriateness for any particular purpose of the information, analyses, algorithms, or models contained in this algorithm.
 
