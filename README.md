@@ -125,7 +125,7 @@ This becomes clear from the comparative graphs. One example is the comparison be
    - For stock abbreviations with a hyphen like `BTC-USD` and a SQL data bank with my code has already been created once, then the database must be deleted manually, otherwise this stock entry cannot be deleted via my code. All other shares will be deleted automatically when restarting the code.
    - *Blog post*: You can find techical articale about this algorithm on [medium.com]
 
-medium.com]: https://medium.com/@kiesel_maxim/unleashing-the-power-of-lstm-a-comparative-study-on-predicting-stock-prices-across-different-4798977c1af3
+[medium.com]: https://medium.com/@kiesel_maxim/unleashing-the-power-of-lstm-a-comparative-study-on-predicting-stock-prices-across-different-4798977c1af3
 
 
 ## License
