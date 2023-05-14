@@ -132,7 +132,7 @@ The MIT License is a permissive open source license that allows for unlimited di
 
 
 ## Knowledgment
-The data was obtained from the website www.Immonet.de.
+The data was obtained from the API of https://finance.yahoo.com/.
 
 
 ## **Risk Disclaimer**:
