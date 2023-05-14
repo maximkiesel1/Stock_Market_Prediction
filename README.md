@@ -8,7 +8,7 @@ In this repository, I will create a machine learning algorithm to predict the st
 
 The `LSTM` (Long Short-Term Memory) algorithm will be used. This is a popular algorithm for stock prediction.
 
-The goal is to create an algorithm that can predict stock prices with a tolerance of `± 5%`. I also want to show how the different stock categories affect the accuracy of the algorithm.
+The goal is to create an algorithm that can predict stock prices with Mean Absolute Percentage Error (MAPE) score of <5%. I also want to show how the different stock categories affect the accuracy of the algorithm.
 
 The following stock categories will be analyzed
 - *Blue chip stocks*: Blue chip stocks are stocks of large, established companies with stable financial performance and low risk.
