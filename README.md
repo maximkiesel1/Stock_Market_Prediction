@@ -123,7 +123,9 @@ This becomes clear from the comparative graphs. One example is the comparison be
    - While training the model, this error messages appears (without an impact):
       - `WARNING:absl:Found untraced functions such as lstm_cell_68_layer_call_fn, lstm_cell_68_layer_call_and_return_conditional_losses while saving (showing 2 of 2). These functions will not be directly callable after loading.`
    - For stock abbreviations with a hyphen like `BTC-USD` and a SQL data bank with my code has already been created once, then the database must be deleted manually, otherwise this stock entry cannot be deleted via my code. All other shares will be deleted automatically when restarting the code.
-   - *Blog post*: You can find techical articale about this algorithm on [medium.com]:https://medium.com/@kiesel_maxim/unleashing-the-power-of-lstm-a-comparative-study-on-predicting-stock-prices-across-different-4798977c1af3
+   - *Blog post*: You can find techical articale about this algorithm on [medium.com]
+
+medium.com]: https://medium.com/@kiesel_maxim/unleashing-the-power-of-lstm-a-comparative-study-on-predicting-stock-prices-across-different-4798977c1af3
 
 
 ## License
