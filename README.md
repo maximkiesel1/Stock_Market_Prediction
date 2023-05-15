@@ -1,4 +1,4 @@
-# Stock Price Prediction
+# Stock Price Prediction with LSTM
 
 ![nick-chong-N__BnvQ_w18-unsplash(1)](https://github.com/maximkiesel1/Stock_Market_Prediction/assets/119667336/5b5f83b2-f126-4cc1-9ba9-a048d2931885)
 
