@@ -418,7 +418,7 @@ def visualization_prediction(prediction):
         print('')
         print('The predicted Adjusted Close for day 7 is: {}'.format(round(prediction[name]['selected_days'][0], 2)))
         print('The predicted Adjusted Close for day 14 is: {}'.format(round(prediction[name]['selected_days'][1], 2)))
-        print('The predicted Adjusted Close for day 28 is: {}'.format(round(prediction[name]['selected_days'][0], 2)))
+        print('The predicted Adjusted Close for day 28 is: {}'.format(round(prediction[name]['selected_days'][2], 2)))
 
         # Make a trading recommendation based on the predicted stock prices
         if y1[-1] > y2[-1]:
